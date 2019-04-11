@@ -31,7 +31,6 @@
   <div class="container">
     <br>
     <h2 class="page-title">Edit Student Data</h2>
-    <br>
     <%- messages('messages',locals) %>
     <% if(errors){ %>
       <% errors.forEach(err=>{ %>
@@ -43,8 +42,6 @@
 
     <form method="POST" action="/manage/edit-page/<%= id %>">
       <div class="form-group">
-        <label for="">Enrollment No.</label>
-        <input type="text" class="form-control" name="eno" value="<%= eno %>" placeholder="Enrollment No.">
       </div>
       <div class="form-group">
           <label for="">Name</label>
@@ -75,6 +72,7 @@
           <input type="text" class="form-control" name="skill" value="<%= skill %>" placeholder="Skills">
           <small class="form-text text-muted">All fields are mandatory</small>
       </div>
+      <input type="hidden" class="form-control" name="eno" value="<%= eno %>" placeholder="Enrollment No.">
       <input type="hidden" name="id" value="<%= id %>">
       <button class="btn btn-primary" type="submit">Submit</button>
     </form>
