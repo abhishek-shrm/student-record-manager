@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Student Record Manager</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Student Record Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Input</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/manage" target="_blank">Manage</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <br>
+    <h2 class="page-title">Edit Student Data</h2>
+    <br>
+    <%- messages('messages',locals) %>
+    <% if(errors){ %>
+      <% errors.forEach(err=>{ %>
+        <div class="alert alert-danger">
+          <%= err.msg %>
+        </div>
+      <% }); %>
+    <% } %>
+
+    <form method="POST" action="/manage/edit-page/<%= id %>">
+      <div class="form-group">
+        <label for="">Enrollment No.</label>
+        <input type="text" class="form-control" name="eno" value="<%= eno %>" placeholder="Enrollment No.">
+      </div>
+      <div class="form-group">
+          <label for="">Name</label>
+          <input type="text" class="form-control" name="s_name" value="<%= s_name %>" placeholder="Name">
+      </div>
+      <div class="form-group">
+          <label for="">Father's Name</label>
+          <input type="text" class="form-control" name="f_name" value="<%= f_name %>" placeholder="Father's Name">
+      </div>
+      <div class="form-group">
+          <label for="">Class</label>
+          <input type="text" class="form-control" name="Class" value="<%= Class %>" placeholder="Class">
+      </div>
+      <div class="form-group">
+          <label for="">Phone No.</label>
+          <input type="text" class="form-control" name="ph_no" value="<%= ph_no %>" placeholder="Phone No.">
+      </div>
+      <div class="form-group">
+          <label for="">Email</label>
+          <input type="email" class="form-control" name="email" value="<%= email %>" placeholder="Email">
+      </div>
+      <div class="form-group">
+          <label for="">Date of Birth</label>
+          <input type="date" class="form-control" name="dob" value="<%= dob %>" placeholder="Date of Birth">
+      </div>
+      <div class="form-group">
+          <label for="">Skills</label>
+          <input type="text" class="form-control" name="skill" value="<%= skill %>" placeholder="Skills">
+          <small class="form-text text-muted">All fields are mandatory</small>
+      </div>
+      <input type="hidden" name="id" value="<%= id %>">
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+  <br><br>
+  <p class="text-center">Copyright &COPY;APK 2019</p>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
